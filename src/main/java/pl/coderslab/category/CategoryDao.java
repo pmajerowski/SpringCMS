@@ -1,7 +1,6 @@
 package pl.coderslab.category;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.author.Author;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,7 +21,7 @@ public class CategoryDao {
     }
 
     public void delete(Category category) {
-       Category persistedCategory = entityManager.contains(category) ? category : entityManager.merge(category);
+        Category persistedCategory = entityManager.contains(category) ? category : entityManager.merge(category);
         entityManager.remove(persistedCategory);
     }
 

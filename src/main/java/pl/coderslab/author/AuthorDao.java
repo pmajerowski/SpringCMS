@@ -1,8 +1,6 @@
 package pl.coderslab.author;
 
 import org.springframework.stereotype.Repository;
-import pl.coderslab.article.Article;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
