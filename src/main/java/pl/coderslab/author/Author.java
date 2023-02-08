@@ -3,6 +3,9 @@ package pl.coderslab.author;
 import pl.coderslab.article.Article;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +19,20 @@ public class Author {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
+    @NotBlank
+    @Size(min = 2)
     private String firstName;
+    @NotBlank
+    @Size(min = 2)
     private String lastName;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
 
     @OneToMany(mappedBy = "author")
     private List<Article> articles = new ArrayList<>();
@@ -39,7 +54,16 @@ public class Author {
         return lastName;
     }
 
+    public String getName() {
+        return firstName + " " + lastName ;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName ;
     }
 }

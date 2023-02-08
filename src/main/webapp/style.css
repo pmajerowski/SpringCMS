@@ -1,0 +1,16 @@
+.error {
+    color: #c72d2d;
+}
+
+.btn {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: menulist-button;
+
+    text-decoration: none;
+    color: initial;
+
+    border: solid;
+    padding: 2px 4px 2px 4px;
+    background: beige;
+}
