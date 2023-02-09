@@ -27,7 +27,7 @@
     <th>Id</th>
     <th>Title</th>
     <th>Author</th>
-    <th>Content</th>
+<%--    <th>Content</th>--%>
     <th>Categories</th>
   </tr>
   </thead>
@@ -36,10 +36,13 @@
       <td>${article.id}</td>
       <td><c:out value="${article.title}"/></td>
       <td><c:out value="${article.author}"/></td>
-      <td><c:out value="${article.content}"/></td>
+<%--      <td><c:out value="${article.content}"/></td>--%>
       <td><c:forEach var="cat" items="${article.categories}">
-        ${cat.name}
+        ${cat.name}<br>
       </c:forEach></td>
+      <td>
+         <td><a href="/article/${article.id}" class="btn">read</a></td>
+      </td>
 
     </tr>
   </c:forEach>

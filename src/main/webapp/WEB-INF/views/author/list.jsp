@@ -21,8 +21,10 @@
       <td><c:out value="${author.firstName}"/></td>
       <td><c:out value="${author.lastName}"/></td>
 
+      <td><a href="/author/${author.id}" class="btn">about author</a></td>
       <td><a href="/author/edit/${author.id}" class="btn">edit</a></td>
       <td><a href="/author/confirm/${author.id}" class="btn">delete</a></td>
+
     </tr>
   </c:forEach>
 

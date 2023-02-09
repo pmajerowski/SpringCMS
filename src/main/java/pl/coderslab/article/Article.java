@@ -14,12 +14,12 @@ import java.util.List;
 @Entity
 @Table(name = "articles")
 public class Article {
+    // class fields:
     @ManyToOne(fetch = FetchType.EAGER)
     Author author;
     @NotEmpty
     @ManyToMany(fetch = FetchType.EAGER)
     List<Category> categories = new ArrayList<>();
-    // class fields:
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

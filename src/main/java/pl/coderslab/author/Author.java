@@ -3,7 +3,6 @@ package pl.coderslab.author;
 import pl.coderslab.article.Article;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -25,21 +24,20 @@ public class Author {
     @NotBlank
     @Size(min = 2)
     private String lastName;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
-    }
-
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     private List<Article> articles = new ArrayList<>();
 
     //getters and setters:
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
     }
 
     public String getFirstName() {
@@ -54,12 +52,12 @@ public class Author {
         return lastName;
     }
 
-    public String getName() {
-        return firstName + " " + lastName ;
-    }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getName() {
+        return firstName + " " + lastName ;
     }
 
     @Override

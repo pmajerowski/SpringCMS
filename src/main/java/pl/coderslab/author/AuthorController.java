@@ -29,6 +29,12 @@ public class AuthorController {
         this.articleRepository = articleRepository;
     }
 
+    @GetMapping("/author/{id}")
+    public String showAuthorById(@PathVariable long id, Model model) {
+        model.addAttribute("author", authorRepository.findById(id).get());
+        return "/author/get";
+    }
+
     @GetMapping("/author/new")
     public String newAuthor(Model model) {
         Author author = new Author();

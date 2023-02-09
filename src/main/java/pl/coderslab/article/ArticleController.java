@@ -30,6 +30,12 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
+    @GetMapping("/article/{id}")
+    public String showArticleById(@PathVariable long id, Model model) {
+        model.addAttribute("article", articleRepository.findById(id).get());
+        return "/article/get";
+    }
+
     @GetMapping("/article/new")
     public String newArticle(Model model) {
         Article article = new Article();
