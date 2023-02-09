@@ -31,6 +31,7 @@ public class AuthorController {
 
     @GetMapping("/author/{id}")
     public String showAuthorById(@PathVariable long id, Model model) {
+        var author = authorRepository.findById(id);
         model.addAttribute("author", authorRepository.findById(id).get());
         return "/author/get";
     }

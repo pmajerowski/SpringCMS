@@ -7,7 +7,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -25,7 +27,7 @@ public class Author {
     @Size(min = 2)
     private String lastName;
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
-    private List<Article> articles = new ArrayList<>();
+    private Set<Article> articles = new HashSet<>();
 
     //getters and setters:
     public Long getId() {
@@ -36,7 +38,7 @@ public class Author {
         this.id = id;
     }
 
-    public List<Article> getArticles() {
+    public Set<Article> getArticles() {
         return articles;
     }
 

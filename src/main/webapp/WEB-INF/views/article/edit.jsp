@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Edit article</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css" />
 </head>
 <body>
 <form:form method="post" action="/article/edit/save/${articleToEdit.id}" modelAttribute="articleToEdit">
@@ -38,7 +39,8 @@
     <p>
 
         <form:hidden path="id"/>
-        <input id="id" name="id" type="hidden" value="${authorToEdit.id}"/>
+        <form:hidden path="createdOn" />
+
         <input type="submit" class="btn" />
     </p>
 </form:form>

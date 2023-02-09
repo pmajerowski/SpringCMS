@@ -48,7 +48,7 @@ public class ArticleController {
         if (bindingResult.hasErrors()) {
             return "/article/new";
         }
-        article.prePersist();
+//        article.prePersist();
         articleRepository.save(article);
         return "redirect:/article/list";
     }
@@ -69,8 +69,8 @@ public class ArticleController {
 
     @PostMapping("/article/edit/save/{id}")
     public String editArticle(Article article, @PathVariable long id) {
-        article.setId(id);
-        article.preUpdate();
+//        article.setId(id);
+//        article.preUpdate();
         articleRepository.save(article);
         return "redirect:/article/list";
 //        return book.toString() + " , id= " + id;
